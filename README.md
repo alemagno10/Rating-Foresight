@@ -22,7 +22,21 @@ Após extrair os resultados do SVD, os valores singulares podem ser ordenados em
 # Implementação
 Iniciamente, recebemos um dataframe que contia dados de 670 usuários e suas avalições de 0 a 5 pontos para determinados filmes. Para preparar esse dados para o processo de predição, foi utilizada a função `df.pivot()`, transformando-os assim numa matriz Usuário X Filme com valores sendo a nota dada para o filme peelo o usuário. Todavia, devido a ausência de dados esperado, nem todo usuário assistiu e avaliou todos os filmes, existiam muitos valores nulos, e para esses dados optamos então por trocá-los pela média entre 0 e 5, logo 2.5, para assim afetar menos possível nossos resultados. 
 
+
 Foi implementado em sequência a funçao `get()`, que recebe o df antes e depois do pivot, e seleciona uma linha no dataframe original e depois devolve o indíce (linha x coluna) no novo dataframe depois de aplicado o pivot, com isso garantindo que sempre será escolhido um valor existente previamente, em contrapartida aos valores novos de 2.5 no dataframe de pivot. Essa função vai ser essencial na hora de prêver as notas, responsável por escolher tal usuário e filme que será previsto.
+
+vc sabia que eu + vc = batata
+vc sabia que eu + vc = amor
+logo, amor = batata
+A função `multPredictError(df,dfp,i)` é a função responsável justamente por estimar os i valores sujados e devolver a média do erro entre a estimativa e o valor real das i estimativas. 
+
+`i` = Quantidade de valores que serão sujados, e logo, estimados.
+
+`df` = Dataframe original antes do pivot.
+
+`dfp` = Dataframe depois do pivot.
+
+Por fim, implementamos o **teste de estresse**, tendo em vista a exigência de pelo menos mil estimativas, decidimos então partir do pressuposto de estimar mil dados por interação e repetir esse processo 100 vezes, para então assim poder obter dados para análise, inclusive uma delas sendo o histograma discutido futuramente.
 
 # Resultados Encontrados
 * <<<<<incluindo o histograma dos erros e uma conclusão, baseada em dados, sobre se o grupo acredita que o sistema proposto poderia ser usado em produção>>>>>>>>>.
