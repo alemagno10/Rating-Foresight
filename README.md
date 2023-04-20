@@ -19,8 +19,6 @@ Para esse projeto, a técnica utilizada para resolução do problema foi o SVD: 
 
 Após extrair os resultados do SVD, os valores singulares podem ser ordenados em ordem decrescente de energia/influência, e em seguida é possível descartar aqueles que são menos influêntes, o que significa que as informações correspondentes a esses vetores serão ignoradas na reconstrução da matriz. Assim, a informação com ruído presente nesses componentes também será reduzida. Dessa forma, a matriz reconstruída a partir da SVD conterá menos ruído e seus dados ficarão próximos aos originais.
 
-![Gif de demonstração da implementação](https://github.com/alemagno10/Rating-Foresight/blob/main/k_value.png)
-
 # Implementação
 Iniciamente, recebemos um dataframe que contia dados de 670 usuários e suas avalições de 0 a 5 pontos para determinados filmes. Para preparar esse dados para o processo de predição, foi utilizada a função `df.pivot()`, transformando-os assim numa matriz Usuário X Filme com valores sendo a nota dada para o filme peelo o usuário. Todavia, devido a ausência de dados esperado, nem todo usuário assistiu e avaliou todos os filmes, existiam muitos valores nulos, e para esses dados optamos então por trocá-los pela média entre 0 e 5, logo 2.5, para assim afetar menos possível nossos resultados. 
 
@@ -30,5 +28,9 @@ Foi implementado em sequência a funçao `get()`, que recebe o df antes e depois
 * <<<<<incluindo o histograma dos erros e uma conclusão, baseada em dados, sobre se o grupo acredita que o sistema proposto poderia ser usado em produção>>>>>>>>>.
 Como grupo obtivemos resultados positivos quanto ao algorítimo de recomendação reproduzido. De maneira geral, com nossos resultados seria possível sim realizar estimativas interessantes quanto a notas que usuários dariam para filmes, algo essencial quando estamos falando do conceito de rating foresight. Alguns pontos importantes inferidos pelo grupo incluem, a diferença que reduzir componentes causa na efetividade do algorítimo, em especial foram testados estimar dados com 21, 5 e 1 componentes e quanto menor o numero de componentes, maior será a redução do ruído, obtendo-se assim estimativas com graus menores de variação. Isso pode ser representado na imagem abaixo, aonde a imagem represente os auto-valores e é possível perceber que a grande parte deles é 0, logo podem ser descartados com o fim de obter um melhor resultado.
 
+![Autovetores](https://github.com/alemagno10/Rating-Foresight/blob/main/k_value.png)
+
 
 O grupo também optou por uma vizualização gráfica, mais especificamente um histograma, que pode ser vizualizado abaixo. O histograma utilizou dados do nosso teste de estresse, que contém informação sobre o grau médio de erro para mil previsões por interação, com um total de cem interações. O que particularmente  nos supreendeu, foi um grau de erro menos elevado quando comparado a interações com menos previsões, isso particularmente fugiu um pouco da nossa perspectiva pois se acreditava que quanto mais ruído menos preciso seria o algorítimo. Uma das possíveis hipóteses levantada pelo grupo para tal ocorrido, 
+
+![Teste de Estresse](https://github.com/alemagno10/Rating-Foresight/blob/main/histo.png)
