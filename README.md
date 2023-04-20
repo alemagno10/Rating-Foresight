@@ -9,10 +9,10 @@ Programa em Jupyter Notebook que recebe um dataframe de avaliação de usuários
   * Clonagem do repositório utilizando o seguinte comando no terminal: `git clone https://github.com/alemagno10/Rating-Foresight`.
   * Ou baixar o arquivo zip desse repositório em `Code > Download Zip`. E descompactá-lo onde preferir.
 * Em seguida, execute o comando: `pip install -r requirements.txt` no diretório principal do projeto clonado.
-* Execute o programa com o seguinte comando: `python demo.py`
+* Execute o programa com o seguinte comando: `python Foresight.ipynb`
 
 # Modelo Matemático
-Para esse projeto, a ferramenta utilizada foi o SVD: Decomposição em valores singulares. Isso consiste em decompor matrizes em autovetores e autovalores, ou seja, componetes que indicam a direção dos dados, e valores que indicam o quanto os vetores influênciam no resultado final. Após o processo de SVD a matriz original se transforma em U * $\Sigma$ * $V^T$, em que :
+Para esse projeto, a técnica utilizada para resolução do problema foi o SVD: Decomposição em Valores Singulares. Isso consiste em decompor uma matriz quadrada em três componentes: U * $\Sigma$ * $V^T$, em que: 
 * As colunas de $U$ são os auto-vetores de $A^T A$,
 * As colunas de $V$ (e, portanto, as linhas de $V^T$) são auto-vetores de $A A^T$,
 * $\Sigma$ é uma matriz onde $s_{i,i}$ é a raiz quadrada dos auto-valores de $A^T A$ ou de $A A^T$.
