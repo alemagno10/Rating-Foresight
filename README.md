@@ -25,9 +25,6 @@ Iniciamente, recebemos um dataframe que contia dados de 670 usuários e suas ava
 
 Foi implementado em sequência a funçao `get()`, que recebe o df antes e depois do pivot, e seleciona uma linha no dataframe original e depois devolve o indíce (linha x coluna) no novo dataframe depois de aplicado o pivot, com isso garantindo que sempre será escolhido um valor existente previamente, em contrapartida aos valores novos de 2.5 no dataframe de pivot. Essa função vai ser essencial na hora de prêver as notas, responsável por escolher tal usuário e filme que será previsto.
 
-vc sabia que eu + vc = batata
-vc sabia que eu + vc = amor
-logo, amor = batata
 A função `multPredictError(df,dfp,i)` é a função responsável justamente por estimar os i valores sujados e devolver a média do erro entre a estimativa e o valor real das i estimativas. 
 
 `i` = Quantidade de valores que serão sujados, e logo, estimados.
