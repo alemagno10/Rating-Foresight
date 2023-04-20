@@ -19,7 +19,7 @@ Para esse projeto, a técnica utilizada para resolução do problema foi o SVD: 
 
 Após extrair os resultados do SVD, os valores singulares podem ser ordenados em ordem decrescente de energia/influência, e em seguida é possível descartar aqueles que são menos influêntes, o que significa que as informações correspondentes a esses vetores serão ignoradas na reconstrução da matriz. Assim, a informação com ruído presente nesses componentes também será reduzida. Dessa forma, a matriz reconstruída a partir da SVD conterá menos ruído e seus dados ficarão próximos aos originais.
 
-![Gif de demonstração da implementação](k)
+![Gif de demonstração da implementação](https://github.com/alemagno10/Rating-Foresight/blob/main/k_value.png)
 
 # Implementação
 Iniciamente, recebemos um dataframe que contia dados de 670 usuários e suas avalições de 0 a 5 pontos para determinados filmes. Para preparar esse dados para o processo de predição, foi utilizada a função `df.pivot()`, transformando-os assim numa matriz Usuário X Filme com valores sendo a nota dada para o filme peelo o usuário. Todavia, devido a ausência de dados esperado, nem todo usuário assistiu e avaliou todos os filmes, existiam muitos valores nulos, e para esses dados optamos então por trocá-los pela média entre 0 e 5, logo 2.5, para assim afetar menos possível nossos resultados. 
